@@ -1,0 +1,15 @@
+@use "./styles/partials/flixmixins" as *;
+@use "./styles/partials/variables" as *;
+@use "./styles/partials/typography" as *;
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "AvenirNext LT Pro", sans-serif;
+}
+

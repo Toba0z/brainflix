@@ -1,0 +1,107 @@
+@use "../../styles/partials/flixmixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  //   font-family: "AvenirNext LT Pro", sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: #fff;
+  flex-direction: column;
+  @include tablet {
+    padding: 20px;
+    flex-direction: row;
+    margin: 0 1rem;
+  }
+
+  &__logo {
+    min-width: 120px;
+    height: 40px;
+    display: flex;
+    margin: auto;
+    padding: 0 0 12px 0;
+    @include tablet {
+      position: relative;
+      top: 8px;
+      right: 27px;
+    }
+  }
+
+  &__input {
+    width: 107%;
+    margin-bottom: 1.5rem;
+    border: 1px solid $brainFlixMercury;
+    border-radius: 4px;
+    background-color: $brainFlixAlabaster;
+    font-family: "AvenirNext LT Pro", sans-serif;
+    padding: 12px 116px 12px 12px;
+    &:focus{
+      border-radius: 2px solid $brainFlixBlue;
+      outline: none;
+    }
+    @include tablet {
+      position: relative;
+      right: 16px;
+      top: 7px;
+    }
+  }
+
+  &__inputNdAvatar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+  &__upload {
+    background-color: $brainFlixBlue;
+    color: $brainFlixWhite;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    &:hover{
+      background-color: $brainFlixDarkBlueHover;
+    }
+    @include tablet {
+      width: 12rem;
+      height: 2.5rem;
+      position: relative;
+      right: 47px;
+      top: 8px;
+    }
+  }
+
+  &__avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: auto;
+
+    @include tablet {
+      position: relative;
+      left: 216px;
+      top: 5px;
+      width: 46px;
+      height: 46px;
+    }
+  }
+}

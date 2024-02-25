@@ -1,0 +1,158 @@
+@use "../../styles/partials/flixmixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+// Base styling for the comments section wrapper.
+.comment {
+  background-color: $brainFlixWhite;
+  &__title {
+    padding: 1rem 20px;
+    font-size: 1rem;
+    @include desktop {
+      padding: 3rem 8rem;
+      font-size: 2rem;
+    }
+  }
+
+  &__form {
+    width: 100%;
+  }
+  &__container-form {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
+  // Styling for the avatar within a comment, including responsive size adjustments.
+  &__avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    right: 1px;
+    top: 35px;
+    object-fit: cover;
+
+    @include tablet {
+      width: 48px;
+      height: 48px;
+    }
+    @include desktop {
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 1rem;
+  }
+
+  &__textarea-form {
+    width: 100%;
+    font-family: "AvenirNext LT Pro", sans-serif;
+    padding: 12px 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid $brainFlixMercury;
+    border-radius: 4px;
+    height: 115px;
+    background-color: $brainFlixAlabaster;
+    resize: none; // Prevent resizing to maintain layout integrity
+    &:focus {
+      // border-color: 1px solid $brainFlixBlue;
+      outline: none; /* Remove the default focus outline */
+      box-shadow: 0 0 0 2px $brainFlixBlue; /* Set the border color to black on focus */
+    }
+    @include tablet{
+      padding: 5px 12px;
+      height:50px;
+    }
+  }
+
+  &__button-form {
+    background-color: $brainFlixBlue;
+    color:$brainFlixWhite;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    max-height: 40px;
+    width: 100%;
+    &:hover{
+      background-color: $brainFlixDarkBlueHover;
+    }
+    @include tablet {
+      max-height: 50px;
+      width: 50%;
+    }
+  }
+
+  &__comment {
+    color: $brainFlixSilver;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  &__textAreaAndButton{
+    @include tablet{
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+      width: 100%;
+    }
+
+  }
+}
+
+
+
+
+
+
+.existing__ids {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 10px 20px;
+}
+
+.existing_innerctn {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.existing__dateName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 13px 0 13px 0;
+}
+.existing__avatar-two {
+  width: 71px; // Initial width and height make it a small, circular icon.
+  height: 42px;
+  background-color: #ccc; // A placeholder background color for the avatar.
+  border-radius: 50%; // Rounds the corners to create a circular shape.
+  margin-right: 10px; // En
+  padding: 1rem;
+  position: relative;
+  top: 9px;
+  object-fit: cover;
+
+  @include tablet{
+    width: 52px;
+    height: 42px;
+  }
+
+}
+
+.existing__divide {
+  height: 2px; // The thickness of the divider.
+  background-color: silver; // Uses a variable for the divider color, ensuring theme consistency.
+  // margin: 20px 0; // Vertical spacing above and below the divider.
+}
