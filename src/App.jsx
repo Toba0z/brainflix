@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import Comment from "./components/Comment/Comment";
 import SideVideos from "./components/SideVideos/SideVideos";
 import SelectedVideo from "./components/SelectedVideo/SelectedVideo";
+import Article from "./components/Article/Article";
 
 import videosDetailsData from "./Data/video-details.json";
 
@@ -49,8 +50,12 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <div className="asideVideos">
-        <SelectedVideo
+
+      <SelectedVideo selectedVideoInfo={selectedVideoInfo} />
+
+      <div className="aside__videos">
+        <div className="aside__comment">
+        <Article
           selectedVideoInfo={selectedVideoInfo}
           dateAndTimeOfComment={dateAndTimeOfComment}
         />
@@ -58,10 +63,13 @@ const App = () => {
           selectedVideoInfo={selectedVideoInfo}
           dateAndTimeOfComment={dateAndTimeOfComment}
         />
-        <SideVideos
+        </div>
+        <div className="aside__videosOnly">
+          <SideVideos
           sideVideos={sideVideos}
           handleVideoSelect={handleVideoSelect}
         />
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/typography" as *;
 
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,5 +10,21 @@
 
 body {
   font-family: "AvenirNext LT Pro", sans-serif;
+}
+
+.aside__videos {
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    
+    .aside__comment {
+      flex: 4; // Equivalent to 60% of the space when combined with the other flex value
+      margin-left:  4rem;
+      border-right: 1px solid  $brainFlixMercury;
+    }
+    .aside__videosOnly { // Correct the classname typo from "videsoOnly" to "videosOnly"
+      flex: 2; // Equivalent to 40% of the space
+    }
+  }
 }
 
