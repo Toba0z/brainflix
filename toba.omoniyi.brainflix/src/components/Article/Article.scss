@@ -1,0 +1,89 @@
+@use "../../styles/partials/flixmixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+/* Main article styling */
+.article {
+  background-color: white; /* Sets the background color of the article to white */
+  padding: 20px 20px; /* Adds padding around the content for spacing */
+  border-radius: 5px; /* Rounds the corners of the article box */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  @include desktop { /* Media query for desktop devices to adjust padding */
+    padding: 20px 0;
+  }
+
+  /* Article title styling */
+  &__title {
+    font-size: 32px; /* Sets the font size for the title */
+    font-weight: bold; /* Makes the title text bold */
+    margin-bottom: 10px; /* Adds space below the title */
+    text-align: left; /* Aligns the title text to the left */
+    line-height: 3rem; /* Sets the line height for better readability */
+    @include desktop { /* Adjusts padding on desktop devices */
+      padding-left: 14px;
+    }
+  }
+
+  /* Divider styling */
+  &__divide {
+    height: 1px; /* Sets the height of the divider */
+    background-color: $brainFlixMercury; /* Uses a variable for consistent color */
+    margin: 20px 0; /* Adds vertical spacing around the divider */
+  }
+
+  /* Alternative divider styling, hidden on desktop */
+  &__divideone {
+    height: 1px; /* Sets the height of the divider */
+    background-color: $brainFlixMercury; /* Uses a variable for consistent color */
+    margin: 20px 0; /* Adds vertical spacing around the divider */
+    @include desktop { /* Hides the divider on desktop and adjusts width */
+      display: none;
+      width: 100%;
+    }
+  }
+
+  /* Container for name, likes, and date styling */
+  &__nameLikesDate {
+    display: flex; /* Enables flexbox layout */
+    flex-direction: row; /* Arranges items in a row */
+    gap: 4rem; /* Sets space between items */
+    @include tablet { /* Adjusts layout to distribute space on tablet devices */
+      justify-content: space-between;
+    }
+    @include desktop { /* Adds padding on desktop devices */
+      padding: 0 20px;
+    }
+  }
+
+  /* Stats container styling */
+  &__stats {
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks items vertically */
+    gap: 1rem; /* Sets space between items */
+    margin-bottom: 10px; /* Adds space below the stats container */
+
+    @include tablet { /* Changes item arrangement to row on tablet devices */
+      flex-direction: row;
+    }
+  }
+
+  /* Styling for date, views, and likes */
+  &__date,
+  &__views,
+  &__likes {
+    color: #777; /* Sets the text color */
+  }
+
+  /* Author name styling */
+  &__author {
+    font-size: 14px; /* Sets the font size */
+    margin-bottom: 5px; /* Adds space below the author name */
+    color: inherit; /* Inherits color from parent element */
+  }
+
+  /* Article content styling */
+  &__content {
+    font-size: 16px; /* Sets the font size for the content */
+    line-height: 1.5; /* Sets line height for better readability */
+    padding: 0 20px; /* Adds horizontal padding for the content */
+  }
+}
