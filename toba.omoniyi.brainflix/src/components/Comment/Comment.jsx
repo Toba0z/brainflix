@@ -6,8 +6,7 @@ import avatarImage from "../../assets/Images/Mohan-muruge.jpg";
 import commentButtonICon from "../../assets/Icons/add_comment.svg";
 
 // Define the Comment functional component with props for selected video info and date formatting function
-const Comment = ({ selectedVideoInfo, dateAndTimeOfComment }) => {
-  // Render method returning JSX
+const Comment = ({ selectedVideoInfo,dateAndTimeOfComment}) => {
   return (
     // Fragment to return a list of siblings without adding extra nodes to the DOM
     <>
