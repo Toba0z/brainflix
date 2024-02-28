@@ -26,5 +26,4 @@ const HomePage = ({ selectedVideoInfo, sideVideos, handleVideoSelect, dateAndTim
     </div>
   );
 };
-
 export default HomePage;

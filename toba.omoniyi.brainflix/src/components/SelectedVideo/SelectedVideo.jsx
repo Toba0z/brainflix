@@ -1,9 +1,12 @@
 import "./SelectedVideo.scss";
-// Define the SelectedVideo functional component with selectedVideoInfo prop
 const SelectedVideo = ({ selectedVideoInfo }) => {
-  // Render method returning JSX
+
+
+
+
+
+  
   return (
-    // Main container for the selected video, styled with a "hero" class
     <main className="hero">
       {/* The video element displays the selected video. 
           It uses the poster attribute to show a thumbnail before the video plays.

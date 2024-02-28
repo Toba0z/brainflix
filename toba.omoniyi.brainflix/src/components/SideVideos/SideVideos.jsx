@@ -21,4 +21,32 @@ const SideVideos = ({ sideVideos, handleVideoSelect }) => {
   );
 };
 
+
+// const handleVideoSelect = (videoId) => {
+//   const newSelectedVideo = videosInfo.find((video) => video.id === videoId);
+//   setSelectedVideoInfo(newSelectedVideo);
+// };
+
+// const sideVideos = videosInfo.filter(
+//   (video) => video.id !== selectedVideoInfo.id
+// );
+
+// const SideVideos = ({ sideVideos, handleVideoSelect }) => {
+//   return (
+//     <aside className="sidevideos">
+//       <h4 className="sidevideos__title">Next Video</h4>
+//       <ul className="sidevideos__list">
+//         {sideVideos.map(video => (
+//           <Link to={`/${user.id}`} > </Link>
+
+
+
+
+//         ))}
+//       </ul>
+//     </aside>
+//   );
+// };
+
+
 export default SideVideos;

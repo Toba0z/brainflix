@@ -3,15 +3,15 @@ import avatarImage from "../../assets/Images/Mohan-muruge.jpg";
 import flixLogo from "../../assets/Logo/BrainFlix-logo.svg";
 import searchIcon from "../../assets/Icons/search.svg";
 import buttonIcon from "../../assets/Icons/upload.svg";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="header">
       <h1 className="header__title header__title--logo">
-        <Link to="/">
+        <NavLink to="/">
              <img src={flixLogo} alt="BrainFlix Logo" className="header__logo" />
-        </Link>
+        </NavLink>
       </h1>
       <div className="header__actions">
         <div className="header__inputNdAvatar">
@@ -32,7 +32,7 @@ const Header = () => {
           <img src={avatarImage} alt="Avatar" className="header__avatar" />
         </div>
         <div className="header__buttonIconStyle">
-          <Link to="/uploads"><button className="header__upload">UPLOAD</button></Link>
+          <NavLink to="/uploads"><button className="header__upload">UPLOAD</button></NavLink>
           <img
             src={buttonIcon}
             alt="BrainFlix iconbutton"
@@ -43,5 +43,4 @@ const Header = () => {
     </header>
   );
 };
-
 export default Header;

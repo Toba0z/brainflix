@@ -1,21 +1,25 @@
 // App.jsx
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useParams} from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import videosDetailsData from "./Data/video-details.json";
 import HomePage from "./pages/HomePage/HomePage";
-import Uploads from "./pages/Uploads/Uploads";
+import Uploads from "./pages/HomePage/HomePage";
+
+// 2515aa87-f829-40de-ade0-d0166853f149
 
 const App = () => {
   const [selectedVideoInfo, setSelectedVideoInfo] = useState(
     videosDetailsData[0]
   );
   const [videosInfo, setVideosInfo] = useState(videosDetailsData);
+  
   const handleVideoSelect = (videoId) => {
     const newSelectedVideo = videosInfo.find((video) => video.id === videoId);
     setSelectedVideoInfo(newSelectedVideo);
   };
+  
   const sideVideos = videosInfo.filter(
     (video) => video.id !== selectedVideoInfo.id
   );
@@ -55,6 +59,7 @@ const App = () => {
               />
             }
           ></Route>
+          <Route path="/:SideVideosClicked" element={<HomePage />}></Route>
           <Route path="/uploads" element={<Uploads />}></Route>
         </Routes>
       </div>
