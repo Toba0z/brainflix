@@ -1,11 +1,5 @@
 import "./SelectedVideo.scss";
 const SelectedVideo = ({ selectedVideoInfo }) => {
-
-
-
-
-
-  
   return (
     <main className="hero">
       {/* The video element displays the selected video. 

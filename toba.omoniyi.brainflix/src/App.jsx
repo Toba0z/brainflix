@@ -1,34 +1,35 @@
 // App.jsx
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, useParams} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/Header/Header";
-import videosDetailsData from "./Data/video-details.json";
 import HomePage from "./pages/HomePage/HomePage";
-import Uploads from "./pages/HomePage/HomePage";
+import Uploads from "./pages/Uploads/Uploads";
+import axios from "axios";
 
-// 2515aa87-f829-40de-ade0-d0166853f149
 
 const App = () => {
-  const [selectedVideoInfo, setSelectedVideoInfo] = useState(
-    videosDetailsData[0]
-  );
-  const [videosInfo, setVideosInfo] = useState(videosDetailsData);
-  
-  const handleVideoSelect = (videoId) => {
-    const newSelectedVideo = videosInfo.find((video) => video.id === videoId);
-    setSelectedVideoInfo(newSelectedVideo);
-  };
-  
-  const sideVideos = videosInfo.filter(
-    (video) => video.id !== selectedVideoInfo.id
-  );
+  const [selectedVideoInfo, setSelectedVideoInfo] = useState({});
+  const [videosInfo, setVideosInfo] = useState([]);
+  const brainFlixApiKey = "2515aa87-f829-40de-ade0-d0166853f149";
+  useEffect(() => {
+    const fetchVideosAll = async () => {
+      const videosUrl = `https://unit-3-project-api-0a5620414506.herokuapp.com/videos?api_key=${brainFlixApiKey}`;
+      try {
+        const { data } = await axios.get(videosUrl);
+        setVideosInfo(data);
+      } catch (error) {
+        console.error("Could not fetch videos!", error);
+      }
+    };
+    fetchVideosAll();
+  }, []);
+
 
   const dateAndTimeOfComment = (date) => {
     const now = new Date();
     const CommentDate = new Date(date);
     const differenceInSeconds = Math.round((now - CommentDate) / 1000);
-
     if (differenceInSeconds < 60) {
       return `${differenceInSeconds} seconds ago`;
     } else if (differenceInSeconds < 3600) {
@@ -53,13 +54,23 @@ const App = () => {
             element={
               <HomePage
                 selectedVideoInfo={selectedVideoInfo}
-                sideVideos={sideVideos}
-                handleVideoSelect={handleVideoSelect}
+                setSelectedVideoInfo={setSelectedVideoInfo}
+                videosInfo={videosInfo}
                 dateAndTimeOfComment={dateAndTimeOfComment}
               />
             }
           ></Route>
-          <Route path="/:SideVideosClicked" element={<HomePage />}></Route>
+          <Route
+            path="/:videoId"
+            element={
+              <HomePage
+                selectedVideoInfo={selectedVideoInfo}
+                setSelectedVideoInfo={setSelectedVideoInfo}
+                videosInfo={videosInfo}
+                dateAndTimeOfComment={dateAndTimeOfComment}
+              />
+            }
+          ></Route>
           <Route path="/uploads" element={<Uploads />}></Route>
         </Routes>
       </div>

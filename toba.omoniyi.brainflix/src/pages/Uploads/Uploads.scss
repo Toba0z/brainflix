@@ -1,11 +1,175 @@
+@use "../../styles/partials/flixmixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
-.upload{
+.upload {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  @include tablet{
+    margin: 2rem;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+  &__thumbnail{
+    @include tablet{
+      width: 50%;
+
+    }
+  }
+
+  .__containerForDesktopversion{
+    display: flex;
+    flex-direction: row;
+  }
+  &__label,
+  &__labeltwo {
+    margin-bottom: 10px;
+    color: $brainFlixSilver;
+  }
+
+  &__thumbnail {
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid $brainFlixMercury;
+    border-radius: 4px;
+    background-color: $brainFlixAlabaster;
+    font-family: "AvenirNext LT Pro", sans-serif;
+    &:focus {
+      outline: none; /* Remove the default focus outline */
+      box-shadow: 0 0 0 2px $brainFlixBlue; /* Set the border color to black on focus */
+    }
+  }
+  &__textarea {
+    width: 100%;
+    font-family: "AvenirNext LT Pro", sans-serif;
+    padding: 12px 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid $brainFlixMercury;
+    border-radius: 4px;
+    height: 115px;
+    background-color: $brainFlixAlabaster;
+    resize: none; /* Disables resizing to keep a consistent layout */
+    &:focus {
+      outline: none; /* Enhances focus state with a box-shadow */
+      box-shadow: 0 0 0 2px $brainFlixBlue;
+    }
+    @include tablet {
+      /* Adjustments for tablet display */
+      padding-bottom: 57px;
+      height: 50px;
+      flex: 0 0 65%; /* Allocates width in a flex container */
+    }
+  }
+
+  &__form {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+  }
 
-    &__form{
-        display: flex;
-        flex-direction: column;
+  &__firstInput,
+  &__secondInput,
+  &__twoButtons {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__twoButtons {
+    margin: auto;
+    gap: 1rem;
+    width: 100%;
+    @include tablet{
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 1rem;
     }
-}
+  }
 
+  &__buttonIconStyle {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
+    @include tablet {
+      width: 35%; /* Adjusts width for tablet display */
+    }
+  }
+
+  /* Styles for the upload button, including background color, typography, and hover effects */
+  &__buttonOne {
+    background-color: $brainFlixBlue;
+    color: $brainFlixWhite;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    padding: 18px;
+    border-radius: 4px;
+    font-size: 12px;
+    &:hover {
+      background-color: $brainFlixDarkBlueHover; /* Changes color on hover */
+    }
+    @include tablet {
+      /* Ensures button fills its container on tablet */
+      width: 75%;
+      height: auto;
+      padding: 18px;
+    }
+  }
+  /* Focus state for the upload button, removing the default outline */
+  &__buttonOne:focus {
+    outline: none;
+    border-color: $brainFlixDarkBlueHover;
+  }
+  /* Positioning for the button icon within the button */
+  &__buttonIcon {
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    @include tablet {
+      /* Tablet-specific adjustments for icon position */
+      top: 72%;
+      left: 6%;
+    }
+  }
+
+  &__buttonTwo{
+    background-color: $brainFlixWhite;
+    color: $brainFlixBlue; 
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    padding: 18px;
+    border-radius: 4px;
+    font-size: 12px;
+    &:hover {
+      background-color: $brainFlixDarkBlueHover; /* Changes color on hover */
+    }
+    @include tablet {
+      /* Ensures button fills its container on tablet */
+      width: 20%;
+      height: auto;
+      padding: 18px;
+    }
+  }
+
+  @include tablet{
+    &__divide {
+      height: 2px; // The thickness of the divider.
+      background-color: $brainFlixMercury; // Uses a variable for the divider color, ensuring theme consistency.
+      margin: 20px 0; // Vertical spacing above and below the divider.
+    }
+  }
+
+}

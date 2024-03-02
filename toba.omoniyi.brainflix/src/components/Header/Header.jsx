@@ -10,7 +10,7 @@ const Header = () => {
     <header className="header">
       <h1 className="header__title header__title--logo">
         <NavLink to="/">
-             <img src={flixLogo} alt="BrainFlix Logo" className="header__logo" />
+          <img src={flixLogo} alt="BrainFlix Logo" className="header__logo" />
         </NavLink>
       </h1>
       <div className="header__actions">
@@ -24,7 +24,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search"
-              class="header__input" 
+              class="header__input"
               id="name"
               name="searchName"
             />
@@ -32,7 +32,9 @@ const Header = () => {
           <img src={avatarImage} alt="Avatar" className="header__avatar" />
         </div>
         <div className="header__buttonIconStyle">
-          <NavLink to="/uploads"><button className="header__upload">UPLOAD</button></NavLink>
+          <NavLink to="/uploads">
+            <button className="header__upload">UPLOAD</button>
+          </NavLink>
           <img
             src={buttonIcon}
             alt="BrainFlix iconbutton"

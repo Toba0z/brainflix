@@ -59,6 +59,23 @@
     padding: 20px 12px; 
   }
 
+
+  &__input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid $brainFlixMercury;
+    border-radius: 4px;
+    background-color: $brainFlixAlabaster;
+    font-family: "AvenirNext LT Pro", sans-serif;
+
+    &:focus {
+      border-color: 1px solid $brainFlixBlue;
+      outline: none; /* Remove the default focus outline */
+      box-shadow: 0 0 0 2px $brainFlixBlue; /* Set the border color to black on focus */
+    }
+  }
+
   /* Styles for the textarea within the form, including typography and borders */
   &__textarea-form {
     width: 100%;
@@ -83,8 +100,8 @@
 
     @include desktop {
       /* Desktop-specific padding and height adjustments */
-      padding: 8px 0 0 12px;
-      height: 50px;
+      padding: 8px 0 29px 12px;
+      // height: 50px;
     }
   }
 
@@ -153,8 +170,8 @@
     width: 100%;
     @include tablet {
       display: flex;
-      flex-direction: row;
-      gap: 2rem;
+      flex-direction: column;
+      // gap: 2rem;
     }
   }
 }

@@ -18,7 +18,7 @@
     padding: 20px; /* Maintains padding on tablet devices */
     flex-direction: row; /* Switches to a horizontal layout on tablet devices */
     margin: 0 1rem; /* Adds horizontal margin for tablet layout */
-  }
+    border-bottom: 1px solid $brainFlixMercury;  }
   @include desktop{
     margin: 0 3rem; /* Increases horizontal margin for desktop layout */
     justify-content: space-between; /* Adjusts child distribution to maximize space between items on desktop */
