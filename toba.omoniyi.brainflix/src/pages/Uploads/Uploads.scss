@@ -6,24 +6,45 @@
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  @include tablet{
+  @include tablet {
     margin: 2rem;
+  }
+  @include desktop{
+    margin: 4rem;
   }
 
   &__title {
     margin-bottom: 1rem;
   }
-  &__thumbnail{
-    @include tablet{
-      width: 50%;
-
+  &__thumbnail {
+    width: 100%;
+    @include tablet {
+      width:50%;
+    }
+    @include desktop{
+      width: 90%;
     }
   }
 
-  .__containerForDesktopversion{
+&__containerAtDesktop{
+
+  @include desktop{
     display: flex;
     flex-direction: row;
   }
+}
+&__thumbnailContainer {
+  @include desktop{
+    flex: 0 0 30%;
+  }
+}
+&__inputAndTextAreaContainer{
+  @include desktop {
+    flex:1;
+  }
+}
+
+
   &__label,
   &__labeltwo {
     margin-bottom: 10px;
@@ -86,10 +107,17 @@
     margin: auto;
     gap: 1rem;
     width: 100%;
-    @include tablet{
+    margin-bottom: 2rem;
+    @include tablet {
       display: flex;
       flex-direction: row-reverse;
       gap: 1rem;
+      margin-left: 4.5rem;
+      margin-left: auto;
+    }
+    @include desktop {
+      margin-left: 6.6rem;
+      margin-left: auto;
     }
   }
 
@@ -97,9 +125,10 @@
     position: relative;
     width: 100%;
     height: 40px;
+    display: inline-block;
     margin-bottom: 15px;
     @include tablet {
-      width: 35%; /* Adjusts width for tablet display */
+      width: 20%; /* Adjusts width for tablet display */
     }
   }
 
@@ -119,8 +148,12 @@
     }
     @include tablet {
       /* Ensures button fills its container on tablet */
-      width: 100%;
-      height: auto;
+      max-width: 100%;
+      padding: 14px;
+    }
+
+    @include desktop {
+      max-width: 100%;
       padding: 18px;
     }
   }
@@ -138,21 +171,26 @@
     cursor: pointer;
     @include tablet {
       /* Tablet-specific adjustments for icon position */
-      top: 72%;
+      top: 47%;
+      left: 6%;
+    }
+
+    @include desktop {
+      top: 65%;
       left: 6%;
     }
   }
 
-  &__buttonTwo{
+  &__buttonTwo {
     background-color: $brainFlixWhite;
-    color: $brainFlixBlue; 
+    color: $brainFlixBlue;
     border: none;
     cursor: pointer;
     width: 100%;
     height: auto;
     padding: 18px;
     border-radius: 4px;
-    font-size: 12px;
+    font-weight: 800;
     &:hover {
       background-color: $brainFlixDarkBlueHover; /* Changes color on hover */
     }
@@ -164,12 +202,11 @@
     }
   }
 
-  @include tablet{
+  @include tablet {
     &__divide {
       height: 2px; // The thickness of the divider.
       background-color: $brainFlixMercury; // Uses a variable for the divider color, ensuring theme consistency.
       margin: 20px 0; // Vertical spacing above and below the divider.
     }
   }
-
 }

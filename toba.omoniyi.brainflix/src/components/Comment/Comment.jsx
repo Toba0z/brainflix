@@ -118,7 +118,7 @@ const deleteComment = async(videoId, commentId)=>{
                       </p>
                     </div>
                     <p className="existing__details-text">{comment.comment}</p>
-                    <button onClick={()=> deleteComment(selectedVideoInfo.id, comment.id)}className="existing__buttonOne">
+                    <button onClick={()=> deleteComment(selectedVideoInfo.id, comment.id)} className="existing__buttonOne">
                       DELETE
                     </button>
                   </div>

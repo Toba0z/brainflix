@@ -76,33 +76,7 @@
     }
   }
 
-//button for Delete comment
-&__buttonOne {
-  background-color: $brainFlixBlue;
-  color: $brainFlixWhite;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  height: auto;
-  padding: 18px;
-  border-radius: 4px;
-  font-size: 12px;
-  &:hover {
-    background-color: $brainFlixDarkBlueHover; /* Changes color on hover */
-  }
-  @include tablet {
-    /* Ensures button fills its container on tablet */
-    width: 100%;
-    height: auto;
-    padding: 18px;
-  }
-}
-/* Focus state for the upload button, removing the default outline */
-&__buttonOne:focus {
-  outline: none;
-  border-color: $brainFlixDarkBlueHover;
-}
-//button for delete comments ends here. 
+
 
 
 
@@ -264,4 +238,34 @@
   height: 1px;
   background-color: $brainFlixMercury;
   // margin: 20px 0; /* Commented out margin for custom spacing */
+}
+
+//button for Delete comment
+.existing__buttonOne {
+  background-color:  $brainFlixWhite;
+  color: $brainFlixBlue;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  &:hover {
+    background-color: $brainFlixDarkBlueHover; /* Changes color on hover */
+  }
+  @include tablet {
+    /* Ensures button fills its container on tablet */
+    width: 14%;
+    height: auto;
+    padding: 10px;
+  }
+
+  /* Focus state for the upload button, removing the default outline */
+&__buttonOne:focus {
+  outline: none;
+  border-color: $brainFlixDarkBlueHover;
+}
+//button for delete comments ends here. 
 }
