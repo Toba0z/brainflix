@@ -114,7 +114,7 @@ const deleteComment = async(videoId, commentId)=>{
                     <div className="existing__dateName">
                       <h3 className="existing__details-name">{comment.name}</h3>
                       <p className="existing__details-date">
-                        {dateAndTimeOfComment(comment.timestamp)}
+                        {dateAndTimeOfComment(comment.timestamp)}{" "}
                       </p>
                     </div>
                     <p className="existing__details-text">{comment.comment}</p>

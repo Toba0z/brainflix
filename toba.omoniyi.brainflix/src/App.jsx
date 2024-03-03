@@ -10,7 +10,6 @@ import axios from "axios";
 const App = () => {
   const [selectedVideoInfo, setSelectedVideoInfo] = useState({});
   const [videosInfo, setVideosInfo] = useState([]);
-
   const brainFlixApiKey = "2515aa87-f829-40de-ade0-d0166853f149";
   useEffect(() => {
     const fetchVideosAll = async () => {
