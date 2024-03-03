@@ -76,6 +76,38 @@
     }
   }
 
+//button for Delete comment
+&__buttonOne {
+  background-color: $brainFlixBlue;
+  color: $brainFlixWhite;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  padding: 18px;
+  border-radius: 4px;
+  font-size: 12px;
+  &:hover {
+    background-color: $brainFlixDarkBlueHover; /* Changes color on hover */
+  }
+  @include tablet {
+    /* Ensures button fills its container on tablet */
+    width: 100%;
+    height: auto;
+    padding: 18px;
+  }
+}
+/* Focus state for the upload button, removing the default outline */
+&__buttonOne:focus {
+  outline: none;
+  border-color: $brainFlixDarkBlueHover;
+}
+//button for delete comments ends here. 
+
+
+
+
+
   /* Styles for the textarea within the form, including typography and borders */
   &__textarea-form {
     width: 100%;

@@ -1,4 +1,5 @@
 import "./SelectedVideo.scss";
+
 const SelectedVideo = ({ selectedVideoInfo }) => {
   return (
     <main className="hero">
@@ -16,4 +17,3 @@ const SelectedVideo = ({ selectedVideoInfo }) => {
 
 // Export the SelectedVideo component for use in other parts of the application
 export default SelectedVideo;
-

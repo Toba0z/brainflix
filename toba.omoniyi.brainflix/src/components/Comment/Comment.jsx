@@ -1,42 +1,32 @@
 // Comment.jsx
-import React from "react";
 import "./Comment.scss";
-// Import statements to include avatar and comment button icon images from assets
 import avatarImage from "../../assets/Images/Mohan-muruge.jpg";
 import commentButtonICon from "../../assets/Icons/add_comment.svg";
 import axios from "axios";
 import { useState } from "react";
+import dateAndTimeOfComment from "../../Utils/Utils";
 
-const Comment = ({
-  selectedVideoInfo,
-  dateAndTimeOfComment,
-  setSelectedVideoInfo,
-}) => {
+const Comment = ({ selectedVideoInfo, setSelectedVideoInfo }) => {
   const [newComment, setNewComment] = useState({
     comment: "",
     name: "",
   });
+
   const handleSelectFormInput = (event) => {
     setNewComment({ ...newComment, [event.target.name]: event.target.value });
   };
-  
   const brainFlixApiKey = "2515aa87-f829-40de-ade0-d0166853f149";
   const handleSummitComment = async (event) => {
     event.preventDefault();
     const videoId = selectedVideoInfo.id;
     const postCommentUrl = `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}/comments?api_key=${brainFlixApiKey}`;
     try {
-      console.log(
-        "Posting comment to:",
-        postCommentUrl,
-        "with payload:",
-        newComment
-      );
       await axios.post(postCommentUrl, {
         name: newComment.name,
         comment: newComment.comment,
       });
       setNewComment({ name: "", comment: "" });
+
       const getComment = async () => {
         const response = await axios.get(
           `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}?api_key=${brainFlixApiKey}`
@@ -48,6 +38,18 @@ const Comment = ({
       console.error("Failed to post this comment:", error);
     }
   };
+
+const deleteComment = async(videoId, commentId)=>{
+      // const videoId = selectedVideoInfo;
+      const deleteCommentUrl = `https://unit-3-project-api-0a5620414506.herokuapp.com/videos/${videoId}/comments/${commentId}?api_key=${brainFlixApiKey}`;
+      try {
+        await axios.delete(deleteCommentUrl)
+        const updateComments = selectedVideoInfo.comments.filter(comment => comment.id !== commentId);
+        setSelectedVideoInfo({...selectedVideoInfo, comments:updateComments});
+      } catch (error) {
+        console.log("Failed to delete comment:", error);
+      }
+}
 
   return (
     <>
@@ -116,6 +118,9 @@ const Comment = ({
                       </p>
                     </div>
                     <p className="existing__details-text">{comment.comment}</p>
+                    <button onClick={()=> deleteComment(selectedVideoInfo.id, comment.id)}className="existing__buttonOne">
+                      DELETE
+                    </button>
                   </div>
                 </div>
               </div>
