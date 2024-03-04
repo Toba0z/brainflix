@@ -1,27 +1,38 @@
 import "../Uploads/Uploads.scss";
 import imageThumbNail from "../../assets/Images/Upload-video-preview.jpg";
-import buttonIcon from "../../assets/Icons/upload.svg";
 import { useNavigate } from "react-router-dom";
 import publicIcon from "../../assets/Icons/publish.svg";
 
+// Defines the Uploads component with navigation and form submission functionality
 const Uploads = () => {
+  // Use useNavigate hook for redirecting after form submission
   const navigate = useNavigate();
+
+  // Form submission handler: shows alert and navigates to home
   const handleSelectForm = (event) => {
     event.preventDefault();
     alert("Thank you for submitting the form");
     navigate("/");
   };
+
+  // Component's returned JSX, structured for video upload functionality
   return (
     <div className="upload">
+      {/* Upload page title */}
       <h1 className="upload__title">Upload Video</h1>
+      {/* Decorative divider */}
       <div className="upload__divide"></div>
 
+      {/* Upload form with handlers for submission */}
       <form onSubmit={handleSelectForm} className="upload__form">
+        {/* Desktop layout container */}
         <div className="upload__containerAtDesktop">
+          {/* Thumbnail upload section */}
           <div className="upload__thumbnailContainer">
             <label htmlFor="videoTitle" className="upload__label">
               VIDEO THUMBNAIL
             </label>
+            {/* Thumbnail display */}
             <div className="upload__thumbnailImage">
               <img
                 src={imageThumbNail}
@@ -30,8 +41,10 @@ const Uploads = () => {
               />
             </div>
           </div>
-          
+
+          {/* Input and textarea container for video title and description */}
           <div className="upload__inputAndTextAreaContainer">
+            {/* Video title input */}
             <div className="upload__firstInput">
               <label htmlFor="videoTitle" className="upload__labeltwo">
                 Title Your Video
@@ -45,6 +58,7 @@ const Uploads = () => {
                 required
               />
             </div>
+            {/* Video description textarea */}
             <div className="upload__secondInput">
               <label htmlFor="videoDescription" className="upload__labeltwo">
                 Add A Video Description
@@ -60,7 +74,7 @@ const Uploads = () => {
           </div>
         </div>
 
-        <div className="upload__divide"></div>
+        {/* Form submission buttons */}
         <div className="upload__twoButtons">
           <div className="upload__buttonIconStyle">
             <img

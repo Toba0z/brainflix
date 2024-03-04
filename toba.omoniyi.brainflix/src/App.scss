@@ -2,36 +2,37 @@
 @use "./styles/partials/variables" as *;
 @use "./styles/partials/typography" as *;
 
-/* Apply a universal box model and reset margins and paddings for all elements */
+/* Global box model and reset for all elements */
 * {
-  box-sizing: border-box; /* Makes sure padding and border are included in the element's total width and height */
-  margin: 0; /* Removes the default margin */
-  padding: 0; /* Removes the default padding */
+  box-sizing: border-box; /* Include padding and border in element's size */
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
 }
 
-/* Set a default font family for the body, affecting all text unless overridden */
+/* Default font setting for body */
 body {
-  font-family: "AvenirNext LT Pro", sans-serif; /* Sets a specific font for better typography */
+  font-family: "AvenirNext LT Pro", sans-serif; /* Set default font */
 }
 
-/* Styles specific to the .aside__videos component, particularly for desktop screens */
+/* Desktop-specific styles for .aside__videos component */
 .aside__videos {
-  @include desktop { /* This line likely represents a media query mixin for desktop screen sizes */
-    display: flex; /* Enables flexbox layout, allowing child elements to be flex items */
-    flex-direction: row; /* Arranges flex items in a row */
+  @include desktop { /* Media query for desktop screens */
+    display: flex; /* Use flexbox layout */
+    flex-direction: row; /* Arrange children in a row */
     
-    /* Styles specific to the .aside__comment class within .aside__videos */
+    /* Styles for comments section */
     .aside__comment {
-      flex: 4; /* Allocates space to this element, taking up 4 parts of the available space */
-      margin-left:  4rem; /* Adds a left margin for spacing from the container's edge or other elements */
-      border-right: 1px solid $brainFlixMercury; /* Adds a right border with a color defined by a variable */
+      flex: 4; /* Take up 4 parts of available space */
+      margin-left: 4rem; /* Space from left edge */
+      border-right: 1px solid $brainFlixMercury; /* Right border with color variable */
     }
     
-    /* Styles specific to the .aside__videosOnly class within .aside__videos */
+    /* Styles for videos list */
     .aside__videosOnly { 
-      flex: 2; /* Allocates space to this element, taking up 2 parts of the available space, making it smaller than .aside__comment */
+      flex: 2; /* Take up 2 parts of available space, less than comments section */
     }
   }
 }
+
 
 

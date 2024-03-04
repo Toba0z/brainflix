@@ -6,7 +6,7 @@
 /* General styles for the comment section, setting the background color */
 .comment {
   background-color: $brainFlixWhite;
-  
+
   /* Styles for the title within the comment section, including font sizing and padding */
   &__title {
     padding: 1rem 20px;
@@ -41,7 +41,7 @@
     right: 1px;
     top: 35px;
     object-fit: cover;
-    
+
     @include tablet {
       width: 48px; /* Adjusts size for tablet */
       height: 48px;
@@ -56,9 +56,8 @@
   &__container {
     display: flex;
     justify-content: flex-start;
-    padding: 20px 12px; 
+    padding: 20px 12px;
   }
-
 
   &__input {
     width: 100%;
@@ -75,12 +74,6 @@
       box-shadow: 0 0 0 2px $brainFlixBlue; /* Set the border color to black on focus */
     }
   }
-
-
-
-
-
-
 
   /* Styles for the textarea within the form, including typography and borders */
   &__textarea-form {
@@ -99,7 +92,7 @@
     }
     @include tablet {
       /* Adjustments for tablet display */
-      padding: 5px 12px;
+      padding: 5px 12px 57px 12px;
       height: 50px;
       flex: 0 0 65%; /* Allocates width in a flex container */
     }
@@ -230,19 +223,18 @@
 
 /* Flex container for comment details */
 .existing__details {
-  flex: 1; /* Allows the details section to fill the available space */
+  flex: 1;
 }
 
 /* Divider styling within the comment section */
 .existing__divide {
   height: 1px;
   background-color: $brainFlixMercury;
-  // margin: 20px 0; /* Commented out margin for custom spacing */
 }
 
 //button for Delete comment
 .existing__buttonOne {
-  background-color:  $brainFlixWhite;
+  background-color: $brainFlixWhite;
   color: $brainFlixBlue;
   font-weight: 800;
   border: none;
@@ -263,9 +255,9 @@
   }
 
   /* Focus state for the upload button, removing the default outline */
-&__buttonOne:focus {
-  outline: none;
-  border-color: $brainFlixDarkBlueHover;
-}
-//button for delete comments ends here. 
+  &__buttonOne:focus {
+    outline: none;
+    border-color: $brainFlixDarkBlueHover;
+  }
+  //button for delete comments ends here.
 }

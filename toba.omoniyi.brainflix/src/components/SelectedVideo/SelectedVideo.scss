@@ -6,14 +6,11 @@
 
 /* Styles for the hero component, allowing it to grow to fill the space in a flex container */
 .hero {
-  flex-grow: 1; /* Enables the hero element to expand and occupy the available space */
-
+  flex-grow: 1; 
   /* Styles specifically for the video element within the hero component */
   &__video {
-    width: 100%; /* Ensures the video element occupies the full width of its parent */
-    height: 100%; /* Ensures the video element occupies the full height of its parent */
+    width: 100%; 
     background-color: $brainFlixDarkblack; /* Sets a dark background color, useful for loading or fallback state */
-
     @include desktop {
       padding: 0 12rem; /* Adds horizontal padding on desktop devices to center the video content */
     }

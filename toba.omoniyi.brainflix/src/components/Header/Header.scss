@@ -2,159 +2,159 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 
+/* Global box model and reset styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-/* Base styles for the header, setting up a flexible column layout that adjusts to row layout on larger screens */
+
+/* Header styles with responsive layout adjustments */
 .header {
   display: flex;
-  justify-content: space-evenly; /* Evenly distributes space between children on all viewports initially */
-  padding: 20px; /* Adds padding around the header's content */
-  background-color: #fff; /* Sets the background color to white */
-  flex-direction: column; /* Stacks children vertically by default */
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: #fff;
+  flex-direction: column;
   @include tablet {
-    padding: 20px; /* Maintains padding on tablet devices */
-    flex-direction: row; /* Switches to a horizontal layout on tablet devices */
-    margin: 0 1rem; /* Adds horizontal margin for tablet layout */
-    border-bottom: 1px solid $brainFlixMercury;  }
-  @include desktop{
-    margin: 0 3rem; /* Increases horizontal margin for desktop layout */
-    justify-content: space-between; /* Adjusts child distribution to maximize space between items on desktop */
+    flex-direction: row;
+    margin: 0 1rem;
+    border-bottom: 1px solid $brainFlixMercury;
+  }
+  @include desktop {
+    margin: 0 3rem;
+    justify-content: space-between;
   }
 
-  /* Styles for the logo, ensuring it's centrally aligned and adjusting its position on tablet */
+  /* Logo styling with responsive positioning */
   &__logo {
-    min-width: 120px; /* Sets a minimum width for the logo */
-    height: 40px; /* Sets the height for the logo */
-    display: flex; /* Enables flex layout for center alignment */
-    margin: auto; /* Centers the logo horizontally */
-    padding: 0 0 12px 0; /* Adds padding below the logo */
+    min-width: 120px;
+    height: 40px;
+    display: flex;
+    margin: auto;
+    padding: 0 0 12px 0;
     @include tablet {
-      position: relative; /* Positions logo relatively to adjust its placement */
-      top: 8px; /* Nudges the logo down slightly on tablet */
-      right: 27px; /* Adjusts the logo to the right on tablet */
+      position: relative;
+      top: 8px;
+      right: 27px;
     }
   }
 
-  /* Container for the search input, defining its size and layout adjustments */
+  /* Search area styling */
   &__search {
-    position: relative; /* Allows absolute positioning of children */
-    width: 250px; /* Sets the width of the search area */
-    height: 40px; /* Sets the height of the search area */
-    margin-bottom: 15px; /* Adds space below the search area */
-    flex: 3; /* Allows the search area to grow within flex container */
-    @include tablet{
-      margin-left: 1rem; /* Adds left margin on tablet */
-      top: 2px; /* Slightly adjusts the vertical position on tablet */
+    position: relative;
+    width: 250px;
+    height: 40px;
+    margin-bottom: 15px;
+    flex: 3;
+    @include tablet {
+      margin-left: 1rem;
+      top: 2px;
     }
   }
 
-  /* Styles for the search input, enhancing focus state */
+  /* Input field styling with focus effect */
   &__input {
-    width: 100%; /* Fills the width of its container */
-    height: 100%; /* Fills the height of its container */
-    padding: 10px; /* Adds internal padding */
-    padding-left: 40px; /* Adds additional left padding to accommodate the search icon */
-    border: 1px solid #ccc; /* Sets the border color */
-    border-radius: 4px; /* Rounds the corners */
+    width: 100%;
+    height: 100%;
+    padding: 10px 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     &:focus {
-      outline: none; /* Removes the default focus outline */
-      box-shadow: 0 0 0 2px $brainFlixBlue; /* Adds a custom focus indicator */
+      outline: none;
+      box-shadow: 0 0 0 2px $brainFlixBlue;
     }
   }
 
-  /* Positioning for the search icon within the search input */
+  /* Search icon positioning */
   &__searchIcon {
-    position: absolute; /* Positions the icon absolutely within its relative parent */
-    top: 50%; /* Centers the icon vertically */
-    left: 10px; /* Places the icon near the left edge */
-    transform: translateY(-50%); /* Ensures precise vertical centering */
-    cursor: pointer; /* Changes the cursor to indicate interactiveness */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
 
-  /* Container for input and avatar, ensuring they start from the left and have space between */
+  /* Flex container for input and avatar */
   &__inputNdAvatar {
-    display: flex; /* Enables flex layout */
-    justify-content: flex-start; /* Aligns children to the start */
-    gap: 2rem; /* Adds space between children */
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
   }
 
-  /* Styles for the actions container, adjusting its layout on tablet */
+  /* Actions container with responsive layout */
   &__actions {
-    display: flex; /* Enables flex layout */
-    justify-content: space-between; /* Distributes space between children */
-    flex-direction: column; /* Stacks children vertically by default */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     @include tablet {
-      flex-direction: row; /* Adjusts to a horizontal layout on tablet */
+      flex-direction: row;
     }
   }
 
-  /* Container for the button icon, defining its size and layout */
+  /* Button and icon container styling */
   &__buttonIconStyle {
-    position: relative; /* Allows absolute positioning of children */
-    width: 100%; /* Fills the width of its container */
-    height: 40px; /* Sets a fixed height */
-    margin-bottom: 15px; /* Adds space below */
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-bottom: 15px;
   }
 
-  /* Styles for the upload button, including hover effects and layout adjustments on tablet */
+  /* Upload button styling with hover and focus effects */
   &__upload {
-    background-color: $brainFlixBlue; /* Sets the background color */
-    color: $brainFlixWhite; /* Sets the text color */
-    border: none; /* Removes the border */
-    cursor: pointer; /* Changes the cursor to indicate interactiveness */
-    width: 100%; /* Fills the width of its container */
-    height: 100%; /* Fills the height of its container */
-    padding: 10px; /* Adds internal padding */
-    border-radius: 4px; /* Rounds the corners */
-    font-size: 12px; /* Sets the font size */
+    background-color: $brainFlixBlue;
+    color: $brainFlixWhite;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 12px;
     &:hover {
-      background-color: $brainFlixDarkBlueHover; /* Changes the background color on hover */
+      background-color: $brainFlixDarkBlueHover;
     }
     @include tablet {
-      width: 12rem; /* Adjusts width on tablet */
-      height: 2.5rem; /* Adjusts height on tablet */
-      position: relative; /* Enables relative positioning */
-      right: 45px; /* Moves the button to the right */
-      top: 1px; /* Slightly adjusts the vertical position */
+      width: 12rem;
+      height: 2.5rem;
+      position: relative;
+      right: 45px;
+      top: 1px;
     }
   }
 
-  /* Enhances the focus state of the upload button */
+  /* Upload button focus styling */
   &__upload:focus {
-    outline: none; /* Removes the default focus outline */
-    border-color: $brainFlixDarkBlueHover; /* Sets a custom focus indicator */
+    outline: none;
+    border-color: $brainFlixDarkBlueHover;
   }
 
-  /* Positioning for the button icon, with adjustments for tablet */
+  /* Button icon styling with tablet adjustments */
   &__buttonIcon {
-    position: absolute; /* Positions the icon absolutely within its relative parent */
-    top: 50%; /* Centers the icon vertically */
-    left: 10px; /* Places the icon near the left edge */
-    transform: translateY(-50%); /* Ensures precise vertical centering */
-    cursor: pointer; /* Changes the cursor to indicate interactiveness */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
     @include tablet {
-      top: 55%; /* Adjusts vertical centering on tablet */
-      left: -38px; /* Moves the icon outside to the left on tablet */
+      top: 55%;
+      left: -38px;
     }
   }
 
-  /* Styles for the avatar, ensuring a circular shape and adjusting its position and size on tablet */
+  /* Avatar styling with responsive adjustments */
   &__avatar {
-    width: 36px; /* Sets the initial width */
-    height: 36px; /* Sets the initial height */
-    border-radius: 50%; /* Creates a circular shape */
-    object-fit: cover; /* Ensures content fits well */
-    margin-left: auto; /* Aligns the avatar to the far right */
-
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: auto;
     @include tablet {
-      position: relative; /* Enables relative positioning */
-      left: 216px; /* Moves the avatar to the right */
-      top: -2px; /* Slightly adjusts the vertical position */
-      width: 46px; /* Increases the width on tablet */
-      height: 46px; /* Increases the height on tablet */
+      position: relative;
+      left: 216px;
+      top: -2px;
+      width: 46px;
+      height: 46px;
     }
   }
 }

@@ -2,39 +2,41 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-
-
-
 .sidevideos {
-    .sidevideos__title{
-        padding: 12px;
-        color: $brainFlixSilver;
-    }
-    .sidevideo__item {
-      display: flex; // This ensures the image and the info are aligned properly.
-      align-items: center; // This vertically centers the items in each list item.
-      margin-bottom: 20px; // Adds some space between the items for better readability.
-      padding: 10px 20px;
-      gap: 12px;
-      .sidevideo__image {
-        width: 120px; // Specify the width of the image
-        height: 68px; // Specify the height of the image
-        object-fit: cover; // This ensures the image covers the area, cropping it if necessary.
-        border-radius: 4px; // Optional: adds rounded corners to the images
-        margin-right: 10px; // Adds some space between the image and the video info
-      }
-  
-      .sidevideo__info {
-        flex-grow: 1; // This allows the info section to take up the remaining space.
-        
+  &__title,
+  &__channel {
+    padding: 12px;
 
-        .sidevideo__channel {
-            padding-top: 1rem;
-        //   overflow: hidden; // Prevents the text from overflowing
-        //   white-space: nowrap; // Keeps the text in a single line
-        //   text-overflow: ellipsis; // Adds an ellipsis to text that overflows
-         }
-      }
+    text-decoration: none;
+  }
+  &__link {
+    text-decoration: none;
+    color: $brainFlixBlack;
+  }
+  &__item {
+    display: flex; // This ensures the image and the info are aligned properly.
+    align-items: center; // This vertically centers the items in each list item.
+    margin-bottom: 20px; // Adds some space between the items for better readability.
+    padding: 10px 20px;
+    gap: 12px;
+  }
+
+  &__image {
+    width: 120px; // Specify the width of the image
+    height: 68px; // Specify the height of the image
+    object-fit: cover; // This ensures the image covers the area, cropping it if necessary.
+    border-radius: 4px; // Optional: adds rounded corners to the images
+    margin-right: 10px; // Adds some space between the image and the video info
+  }
+
+  &__info {
+    flex-grow: 1; // This allows the info section to take up the remaining space.
+
+    &__channel {
+      padding-top: 1rem;
+      //   overflow: hidden; // Prevents the text from overflowing
+      //   white-space: nowrap; // Keeps the text in a single line
+      //   text-overflow: ellipsis; // Adds an ellipsis to text that overflows
     }
   }
-  
+}
