@@ -75,6 +75,7 @@ const Uploads = () => {
         </div>
 
         {/* Form submission buttons */}
+        <div className="upload__divide"></div>
         <div className="upload__twoButtons">
           <div className="upload__buttonIconStyle">
             <img
