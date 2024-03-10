@@ -174,20 +174,23 @@
     }
   }
 }
+//======comments Styling ==================
+.existing{
+
+  &__ids {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 10px 12px;
+    @include desktop {
+      padding: 10px 0; /* Desktop-specific padding adjustments */
+    }
+  }
 
 /* Flex container for comment IDs, allowing for vertical stacking and spacing */
-.existing__ids {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 10px 12px;
-  @include desktop {
-    padding: 10px 0; /* Desktop-specific padding adjustments */
-  }
-}
 
 /* Inner container for each comment, using flexbox for layout */
-.existing_innerctn {
+&__innerctn {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -197,7 +200,7 @@
 }
 
 /* Styles for the date and name within comments, using flexbox for layout */
-.existing__dateName {
+&__dateName {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -205,7 +208,7 @@
 }
 
 /* Styling for the secondary avatar, ensuring a circular appearance */
-.existing__avatar-two {
+&__avatar-two {
   width: 42px;
   height: 42px;
   background-color: $brainFlixMercury;
@@ -222,18 +225,18 @@
 }
 
 /* Flex container for comment details */
-.existing__details {
+&__details {
   flex: 1;
 }
 
 /* Divider styling within the comment section */
-.existing__divide {
+&__divide {
   height: 1px;
   background-color: $brainFlixMercury;
 }
 
 //button for Delete comment
-.existing__buttonOne {
+&__buttonOne {
   background-color: $brainFlixWhite;
   color: $brainFlixBlue;
   font-weight: 800;
@@ -253,11 +256,13 @@
     height: auto;
     padding: 10px;
   }
-
   /* Focus state for the upload button, removing the default outline */
-  &__buttonOne:focus {
-    outline: none;
-    border-color: $brainFlixDarkBlueHover;
-  }
-  //button for delete comments ends here.
+}
+
+&__buttonOne:focus {
+  outline: none;
+  border-color: $brainFlixDarkBlueHover;
+}
+//button for delete comments ends here.
+  
 }

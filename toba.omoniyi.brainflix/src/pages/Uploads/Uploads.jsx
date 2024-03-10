@@ -2,37 +2,50 @@ import "../Uploads/Uploads.scss";
 import imageThumbNail from "../../assets/Images/Upload-video-preview.jpg";
 import { useNavigate } from "react-router-dom";
 import publicIcon from "../../assets/Icons/publish.svg";
+import { useState } from "react";
+import axios from "axios";
 
-// Defines the Uploads component with navigation and form submission functionality
 const Uploads = () => {
-  // Use useNavigate hook for redirecting after form submission
   const navigate = useNavigate();
+  const [videoTitle, setVideoTitle] = useState("");
+  const [videoDescription, setVideoDescription] = useState("");
 
-  // Form submission handler: shows alert and navigates to home
-  const handleSelectForm = (event) => {
-    event.preventDefault();
-    alert("Thank you for submitting the form");
-    navigate("/");
+  const handleTitleChange = (event) => {
+    setVideoTitle(event.target.value);
   };
 
-  // Component's returned JSX, structured for video upload functionality
+  const handleDescriptionChange = (event) => {
+    setVideoDescription(event.target.value);
+  };
+
+  const handleSelectForm = async (event) => {
+    event.preventDefault();
+    const newVideo = {
+      title: videoTitle,
+      description: videoDescription,
+    };
+    try {
+      await axios.post("http://localhost:8088/videos", newVideo);
+      alert("video successfully uploaded!");
+      navigate("/");
+    } catch (error) {
+      console.error("Error Uploading video", error);
+      alert("Failed to upload video.");
+    }
+    
+  };
+
   return (
     <div className="upload">
-      {/* Upload page title */}
       <h1 className="upload__title">Upload Video</h1>
-      {/* Decorative divider */}
       <div className="upload__divide"></div>
 
-      {/* Upload form with handlers for submission */}
       <form onSubmit={handleSelectForm} className="upload__form">
-        {/* Desktop layout container */}
         <div className="upload__containerAtDesktop">
-          {/* Thumbnail upload section */}
           <div className="upload__thumbnailContainer">
             <label htmlFor="videoTitle" className="upload__label">
               VIDEO THUMBNAIL
             </label>
-            {/* Thumbnail display */}
             <div className="upload__thumbnailImage">
               <img
                 src={imageThumbNail}
@@ -42,9 +55,7 @@ const Uploads = () => {
             </div>
           </div>
 
-          {/* Input and textarea container for video title and description */}
           <div className="upload__inputAndTextAreaContainer">
-            {/* Video title input */}
             <div className="upload__firstInput">
               <label htmlFor="videoTitle" className="upload__labeltwo">
                 Title Your Video
@@ -56,9 +67,10 @@ const Uploads = () => {
                 placeholder="Add a title to your video"
                 className="upload__input"
                 required
+                onChange={handleTitleChange}
+                value={videoTitle}
               />
             </div>
-            {/* Video description textarea */}
             <div className="upload__secondInput">
               <label htmlFor="videoDescription" className="upload__labeltwo">
                 Add A Video Description
@@ -69,11 +81,12 @@ const Uploads = () => {
                 placeholder="Add a description to your video"
                 className="upload__textarea"
                 required
+                onChange={handleDescriptionChange}
+                value={videoDescription}
               ></textarea>
             </div>
           </div>
         </div>
-
         {/* Form submission buttons */}
         <div className="upload__divide"></div>
         <div className="upload__twoButtons">
