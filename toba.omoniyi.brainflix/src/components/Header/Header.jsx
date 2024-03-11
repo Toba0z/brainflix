@@ -34,7 +34,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search"
-              class="header__input" // Note: This should be className instead of class
+              className="header__input" // Note: This should be className instead of class
               id="name"
               name="searchName"
             />

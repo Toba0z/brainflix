@@ -8,10 +8,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 // Defines the HomePage component to display video content and related components.
-
 const { REACT_APP_BACKEND_URL } = process.env;
-console.log("Testing url", REACT_APP_BACKEND_URL);
-
 const HomePage = () => {
   const [selectedVideoInfo, setSelectedVideoInfo] = useState({});
   const [videosInfo, setVideosInfo] = useState([]);

@@ -6,14 +6,17 @@ import { useState } from "react";
 import axios from "axios";
 
 const Uploads = () => {
+    // Navigation hook and state management for video title and description
   const navigate = useNavigate();
   const [videoTitle, setVideoTitle] = useState("");
   const [videoDescription, setVideoDescription] = useState("");
 
+    // Handles the change in video title input
   const handleTitleChange = (event) => {
     setVideoTitle(event.target.value);
   };
 
+    // Handles the change in video description input
   const handleDescriptionChange = (event) => {
     setVideoDescription(event.target.value);
   };
@@ -36,17 +39,17 @@ const Uploads = () => {
   };
 
   return (
+        // Video upload form layout
     <div className="upload">
       <h1 className="upload__title">Upload Video</h1>
       <div className="upload__divide"></div>
-
       <form onSubmit={handleSelectForm} className="upload__form">
-        <div className="upload__containerAtDesktop">
-          <div className="upload__thumbnailContainer">
+        <div className="upload__container-desktop">
+          <div className="upload__thumbnail-container">
             <label htmlFor="videoTitle" className="upload__label">
               VIDEO THUMBNAIL
             </label>
-            <div className="upload__thumbnailImage">
+            <div className="upload__thumbnail-Image">
               <img
                 src={imageThumbNail}
                 alt="Video Thumbnail"
@@ -55,8 +58,9 @@ const Uploads = () => {
             </div>
           </div>
 
-          <div className="upload__inputAndTextAreaContainer">
-            <div className="upload__firstInput">
+          <div className="upload__input-textarea-container">
+          {/* // Input fields for video title and description */}
+            <div className="upload__firstinput">
               <label htmlFor="videoTitle" className="upload__labeltwo">
                 Title Your Video
               </label>
@@ -89,18 +93,18 @@ const Uploads = () => {
         </div>
         {/* Form submission buttons */}
         <div className="upload__divide"></div>
-        <div className="upload__twoButtons">
-          <div className="upload__buttonIconStyle">
+        <div className="upload__two-buttons">
+          <div className="upload__buttonicon-style">
             <img
               src={publicIcon}
               alt="BrainFlix iconbutton"
-              className="upload__buttonIcon"
+              className="upload__buttonicon"
             />
-            <button type="submit" className="upload__buttonOne">
+            <button type="submit" className="upload__button-one">
               PUBLISH
             </button>
           </div>
-          <button type="submit" className="upload__buttonTwo">
+          <button type="submit" className="upload__button-two">
             CANCEL
           </button>
         </div>

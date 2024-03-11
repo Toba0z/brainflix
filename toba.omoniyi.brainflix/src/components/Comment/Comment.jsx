@@ -7,8 +7,6 @@ import { useState } from "react";
 import dateAndTimeOfComment from "../../Utils/Utils";
 
 const { REACT_APP_BACKEND_URL } = process.env;
-console.log("Testing url from comments posting", REACT_APP_BACKEND_URL);
-
 // The Comment component receives selectedVideoInfo and setSelectedVideoInfo props for managing video comments
 const Comment = ({ selectedVideoInfo, setSelectedVideoInfo }) => {
   // State for handling new comment input fields
@@ -22,9 +20,6 @@ const Comment = ({ selectedVideoInfo, setSelectedVideoInfo }) => {
     setNewComment({ ...newComment, [event.target.name]: event.target.value });
   };
 
-  // API key for authentication with your backend
-  // const brainFlixApiKey = "2515aa87-f829-40de-ade0-d0166853f149";
-  // Handles the submission of a new comment
 
   const handleSummitComment = async (event) => {
     event.preventDefault(); // Prevents the default form submission behavior
