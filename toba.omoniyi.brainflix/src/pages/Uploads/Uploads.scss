@@ -9,14 +9,14 @@
   @include tablet {
     margin: 2rem;
   }
-  @include desktop{
+  @include desktop{          // Responsive margin adjustments
     margin: 4rem;
   }
 
-  &__title {
+  &__title {                // Title styling                  
     margin-bottom: 1rem;
   }
-  &__thumbnail {
+  &__thumbnail {             // Thumbnail styling with responsive width adjustments
     width: 100%;
     @include tablet {
       width:50%;
@@ -25,26 +25,29 @@
       width: 90%;
     }
   }
-
-&__containerAtDesktop{
-
+  // Container for desktop layout adjustment
+&__container-desktop{
   @include desktop{
     display: flex;
     flex-direction: row;
   }
 }
-&__thumbnailContainer {
+
+  // Thumbnail container styling for desktop
+&__thumbnail-container {
   @include desktop{
     flex: 0 0 30%;
   }
 }
-&__inputAndTextAreaContainer{
+
+  // Input and textarea container with flexible layout on desktop
+&__input-textarea-container{
   @include desktop {
     flex:1;
   }
 }
 
-
+  // Label styling with color variable
   &__label,
   &__labeltwo {
     margin-bottom: 10px;
@@ -55,6 +58,7 @@
     margin-bottom: 1rem;
   }
 
+    // Input styling with focus state enhancements
   &__input {
     width: 100%;
     padding: 12px;
@@ -68,6 +72,7 @@
       box-shadow: 0 0 0 2px $brainFlixBlue; /* Set the border color to black on focus */
     }
   }
+    // Textarea specific styles with responsive adjustments
   &__textarea {
     width: 100%;
     font-family: "AvenirNext LT Pro", sans-serif;
@@ -90,20 +95,22 @@
     }
   }
 
+    // Form layout styling
   &__form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
 
-  &__firstInput,
+  &__firstinput,
   &__secondInput,
-  &__twoButtons {
+  &__two-buttons {
     display: flex;
     flex-direction: column;
   }
 
-  &__twoButtons {
+    // Button container styling with responsive layout adjustments
+  &__two-buttons {
     margin: auto;
     gap: 1rem;
     width: 100%;
@@ -121,7 +128,7 @@
     }
   }
 
-  &__buttonIconStyle {
+  &__buttonicon-style {
     position: relative;
     width: 100%;
     height: 40px;
@@ -133,7 +140,7 @@
   }
 
   /* Styles for the upload button, including background color, typography, and hover effects */
-  &__buttonOne {
+  &__button-one {
     background-color: $brainFlixBlue;
     color: $brainFlixWhite;
     border: none;
@@ -158,12 +165,12 @@
     }
   }
   /* Focus state for the upload button, removing the default outline */
-  &__buttonOne:focus {
+  &__button-one:focus {
     outline: none;
     border-color: $brainFlixDarkBlueHover;
   }
   /* Positioning for the button icon within the button */
-  &__buttonIcon {
+  &__buttonicon{
     position: absolute;
     top: 65%;
     left: 10%;
@@ -181,7 +188,8 @@
     }
   }
 
-  &__buttonTwo {
+    // Additional button-one specific styling
+  &__button-two {
     background-color: $brainFlixWhite;
     color: $brainFlixBlue;
     border: none;
@@ -202,11 +210,12 @@
     }
   }
 
+    // Divider styling with responsive adjustments
   @include tablet {
     &__divide {
-      height: 2px; // The thickness of the divider.
-      background-color: $brainFlixMercury; // Uses a variable for the divider color, ensuring theme consistency.
-      margin: 20px 0; // Vertical spacing above and below the divider.
+      height: 2px;                          // The thickness of the divider.
+      background-color: $brainFlixMercury;  // Uses a variable for the divider color, ensuring theme consistency.
+      margin: 20px 0;                       // Vertical spacing above and below the divider.
     }
   }
 }

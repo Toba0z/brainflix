@@ -2,38 +2,54 @@ import "../Uploads/Uploads.scss";
 import imageThumbNail from "../../assets/Images/Upload-video-preview.jpg";
 import { useNavigate } from "react-router-dom";
 import publicIcon from "../../assets/Icons/publish.svg";
+import { useState } from "react";
+import axios from "axios";
 
-// Defines the Uploads component with navigation and form submission functionality
 const Uploads = () => {
-  // Use useNavigate hook for redirecting after form submission
+    // Navigation hook and state management for video title and description
   const navigate = useNavigate();
+  const [videoTitle, setVideoTitle] = useState("");
+  const [videoDescription, setVideoDescription] = useState("");
 
-  // Form submission handler: shows alert and navigates to home
-  const handleSelectForm = (event) => {
-    event.preventDefault();
-    alert("Thank you for submitting the form");
-    navigate("/");
+    // Handles the change in video title input
+  const handleTitleChange = (event) => {
+    setVideoTitle(event.target.value);
   };
 
-  // Component's returned JSX, structured for video upload functionality
-  return (
-    <div className="upload">
-      {/* Upload page title */}
-      <h1 className="upload__title">Upload Video</h1>
-      {/* Decorative divider */}
-      <div className="upload__divide"></div>
+    // Handles the change in video description input
+  const handleDescriptionChange = (event) => {
+    setVideoDescription(event.target.value);
+  };
 
-      {/* Upload form with handlers for submission */}
+  const handleSelectForm = async (event) => {
+    event.preventDefault();
+    const newVideo = {
+      title: videoTitle,
+      description: videoDescription,
+    };
+    try {
+      await axios.post("http://localhost:8088/videos", newVideo);
+      alert("video successfully uploaded!");
+      navigate("/");
+    } catch (error) {
+      console.error("Error Uploading video", error);
+      alert("Failed to upload video.");
+    }
+    
+  };
+
+  return (
+        // Video upload form layout
+    <div className="upload">
+      <h1 className="upload__title">Upload Video</h1>
+      <div className="upload__divide"></div>
       <form onSubmit={handleSelectForm} className="upload__form">
-        {/* Desktop layout container */}
-        <div className="upload__containerAtDesktop">
-          {/* Thumbnail upload section */}
-          <div className="upload__thumbnailContainer">
+        <div className="upload__container-desktop">
+          <div className="upload__thumbnail-container">
             <label htmlFor="videoTitle" className="upload__label">
               VIDEO THUMBNAIL
             </label>
-            {/* Thumbnail display */}
-            <div className="upload__thumbnailImage">
+            <div className="upload__thumbnail-Image">
               <img
                 src={imageThumbNail}
                 alt="Video Thumbnail"
@@ -42,10 +58,9 @@ const Uploads = () => {
             </div>
           </div>
 
-          {/* Input and textarea container for video title and description */}
-          <div className="upload__inputAndTextAreaContainer">
-            {/* Video title input */}
-            <div className="upload__firstInput">
+          <div className="upload__input-textarea-container">
+          {/* // Input fields for video title and description */}
+            <div className="upload__firstinput">
               <label htmlFor="videoTitle" className="upload__labeltwo">
                 Title Your Video
               </label>
@@ -56,9 +71,10 @@ const Uploads = () => {
                 placeholder="Add a title to your video"
                 className="upload__input"
                 required
+                onChange={handleTitleChange}
+                value={videoTitle}
               />
             </div>
-            {/* Video description textarea */}
             <div className="upload__secondInput">
               <label htmlFor="videoDescription" className="upload__labeltwo">
                 Add A Video Description
@@ -69,25 +85,26 @@ const Uploads = () => {
                 placeholder="Add a description to your video"
                 className="upload__textarea"
                 required
+                onChange={handleDescriptionChange}
+                value={videoDescription}
               ></textarea>
             </div>
           </div>
         </div>
-
         {/* Form submission buttons */}
         <div className="upload__divide"></div>
-        <div className="upload__twoButtons">
-          <div className="upload__buttonIconStyle">
+        <div className="upload__two-buttons">
+          <div className="upload__buttonicon-style">
             <img
               src={publicIcon}
               alt="BrainFlix iconbutton"
-              className="upload__buttonIcon"
+              className="upload__buttonicon"
             />
-            <button type="submit" className="upload__buttonOne">
+            <button type="submit" className="upload__button-one">
               PUBLISH
             </button>
           </div>
-          <button type="submit" className="upload__buttonTwo">
+          <button type="submit" className="upload__button-two">
             CANCEL
           </button>
         </div>

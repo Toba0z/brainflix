@@ -4,9 +4,8 @@
 
 /* Global box model and reset for all elements */
 * {
-  box-sizing: border-box; /* Include padding and border in element's size */
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
+  box-sizing: border-box; 
+  padding: 0; 
 }
 
 /* Default font setting for body */
@@ -16,20 +15,20 @@ body {
 
 /* Desktop-specific styles for .aside__videos component */
 .aside__videos {
-  @include desktop { /* Media query for desktop screens */
-    display: flex; /* Use flexbox layout */
-    flex-direction: row; /* Arrange children in a row */
+  @include desktop { 
+    display: flex; 
+    flex-direction: row; 
     
     /* Styles for comments section */
     .aside__comment {
-      flex: 4; /* Take up 4 parts of available space */
-      margin-left: 4rem; /* Space from left edge */
-      border-right: 1px solid $brainFlixMercury; /* Right border with color variable */
+      flex: 4; 
+      margin-left: 4rem; 
+      border-right: 1px solid $brainFlixMercury; 
     }
     
     /* Styles for videos list */
     .aside__videosOnly { 
-      flex: 2; /* Take up 2 parts of available space, less than comments section */
+      flex: 2; 
     }
   }
 }
